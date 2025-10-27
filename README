@@ -7,15 +7,17 @@ main first parses its flags and other input, and based on this
 decdes how to continue.
 
 if it has no target dir it uses current dir, if it does 
-have a target(s) it loops through them
-each part calls the proper directory recursing
-or file printing function based on the options.
-ls_ directory used for when a directory is needed to be 
-traversed and printed,
+have target(s) it loops through them
+both call the proper function for directory recursing
+or file printing based on the options.
+ls_directory used for when a single directory is needed to be 
+traversed and printed, like when a dir is specified or 
+no targets are provided i.e. 
+>>ls
 process_recursively is used when the -R flag is present
 
-passes opts struct all arount, which lets program know
-what options are selected.
+The program passes opts struct all arount, which lets 
+program know what options are selected.
 Behavior is determined at options parsing
 
 recursion was acheived by reusing my directory printing 
