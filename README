@@ -1,7 +1,42 @@
 ./ls blank
 or
 ./ls file -a
-Implemented -aAlnshk
+Implemented ./ls [ −AacdFfhiklnqRrSstuw] [file ...] 
+
+main first parses its flags and other input, and based on this
+decdes how to continue.
+
+if it has no target dir it uses current dir, if it does 
+have a target(s) it loops through them
+each part calls the proper directory recursing
+or file printing function based on the options.
+ls_ directory used for when a directory is needed to be 
+traversed and printed,
+process_recursively is used when the -R flag is present
+
+passes opts struct all arount, which lets program know
+what options are selected.
+Behavior is determined at options parsing
+
+recursion was acheived by reusing my directory printing 
+function ls_directory and then gathering directories and
+recursing on them, this handles the proper printing 
+without duplicating code.
+
+util.c has helper functions for sorting and some
+printer function helpers.
+
+print.c has 3 ways of printing
+
+the long format in print_long_format
+
+print_simple which is used for when files are passed as args
+
+print_columns which prints in the default ls style
+
+opts must be passed for constant checks within the print
+functions and their helpers to determine what should and
+should not be printed based on options.
 
 sorting done via qsort and helper functions passed in to 
 compare 2 elements
