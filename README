@@ -1,0 +1,13 @@
+./ls blank
+or
+./ls file -a
+Implemented -aAlnshk
+
+sorting done via qsort and helper functions passed in to 
+compare 2 elements
+
+qsort_r has a different order of variables in bsd versus linux
+so i had to switch calls and helper. 
+then i realized qsort_r wasnt even available 
+so I just made a sorting function for each time m, c, a
+
